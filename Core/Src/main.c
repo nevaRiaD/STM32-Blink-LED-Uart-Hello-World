@@ -97,10 +97,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); // LED ON
-	HAL_Delay(1000); // delay in ms
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET); // LED OFF
-	HAL_Delay(1000); // delay in ms
+//	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET); // LED ON
+//	HAL_Delay(1000); // delay in ms
+//	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET); // LED OFF
+//	HAL_Delay(1000); // delay in ms
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -232,7 +232,11 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
 
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // Toggle LED when button is pressed
+}
 /* USER CODE END 4 */
 
 /**
